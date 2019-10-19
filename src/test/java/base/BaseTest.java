@@ -8,6 +8,10 @@ import java.util.concurrent.TimeUnit;
 
 import helper.date.DateAndTimeHelper;
 import helper.file.FileHelper;
+import io.restassured.RestAssured;
+import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.http.ContentType;
+import io.restassured.specification.RequestSpecification;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.OutputType;
@@ -30,13 +34,16 @@ public class BaseTest {
     protected CapabilityFactory capabilityFactory = new CapabilityFactory();
     public static String caseNo;
     public static String browserName;
-    public String localPath = System.getProperty("user.dir");
+    public static String localPath = System.getProperty("user.dir");
     public static String url = "https://www.trendyol.com/";
+    public static RequestSpecification request;
 
     @BeforeMethod
     @Parameters(value = {"browser"})
     public void setup(String browser) throws MalformedURLException {
         PropertyConfigurator.configure(localPath + "/src/test/resources/properties/log4j.properties");
+        //RestAssured.baseURI = url;
+       // request = RestAssured.given();
         driver.set(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilityFactory.getCapabilities(browser)));
         driver.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get().navigate().to(url);
@@ -53,7 +60,7 @@ public class BaseTest {
         File screenShotName;
         if (!iTestResult.isSuccess()) {
             screenShotName = FileHelper.getInstance()
-                    .getFile("src/test/reports/screenshots/" + browserName + "/"
+                    .getFile(localPath+"/reports/screenshots/" + browserName + "/"
                             + DateAndTimeHelper.getNowDateDayMonthYearFormatAsString() + "/"
                             + iTestResult.getName() + caseNo + "-"
                             + DateAndTimeHelper.getNowDateDHoursMinuteSecondFormatAsString() + ".png");

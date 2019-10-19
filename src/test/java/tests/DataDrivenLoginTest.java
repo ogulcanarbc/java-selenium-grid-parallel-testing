@@ -10,9 +10,9 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 @Listeners(TestListener.class)
-public class LoginTest extends BaseTest {
+public class DataDrivenLoginTest extends BaseTest {
 
-    Logger logger = Logger.getLogger(LoginTest.class);
+    Logger logger = Logger.getLogger(DataDrivenLoginTest.class);
 
     @Test(dataProvider = "logindata", dataProviderClass = DataProvider.class)
     public void loginTest(LoginDataModel loginData) throws InterruptedException {
@@ -23,8 +23,6 @@ public class LoginTest extends BaseTest {
                 .clickSignInIconButton()
                 .login(loginData.getUsername(), loginData.getPassword())
                 .clickLoginButton(loginData.getCaseNo());
-
-
     }
 
 }
