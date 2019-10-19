@@ -22,7 +22,7 @@ public class LoginDataModel {
         this.password = password;
     }
 
-    public String getCasename() {
+    public String getCaseNo() {
         return casename;
     }
 

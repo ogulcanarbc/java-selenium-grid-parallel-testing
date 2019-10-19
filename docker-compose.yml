@@ -1,10 +1,7 @@
-ngnixreport:
-  image: nginx:alpine
+web_server:
+  image: bilalmitaf/mynginx:0.1
   ports:
-    - "82:80"
-  volumes:
-    - ./:/var/www
-    - ./nginx/conf.d/:/etc/nginx/conf.d/
+    - "8001:80"
 hub:
   image: selenium/hub
   ports:
@@ -12,14 +9,14 @@ hub:
 firefox:
   image: selenium/node-firefox:3.5
   environment:
-    - NODE_MAX_INSTANCE=1
-    - NODE_MAX_SESSION=1
+    - NODE_MAX_INSTANCE=10
+    - NODE_MAX_SESSION=10
   links:
   - hub
 chrome:
   image: selenium/node-chrome:3.5
   environment:
-    - NODE_MAX_INSTANCE=1
-    - NODE_MAX_SESSION=1
+    - NODE_MAX_INSTANCE=10
+    - NODE_MAX_SESSION=10
   links:
   - hub

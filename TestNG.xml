@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite thread-count="2" name="Suite" parallel="tests">
-    <test name="LoginTest" parallel="methods" thread-count="5">
+<suite thread-count="10" name="TrendyoLoginSuitet" parallel="tests">
+    <test name="chrome-test" parallel="methods" thread-count="5">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="LoginTest">
+            <class name="tests.LoginTest">
             </class>
         </classes>
     </test>
-    <test name="com.SecondTest" parallel="methods" thread-count="5">
+    <test name="firefox-test" parallel="methods" thread-count="5">
         <parameter name="browser" value="firefox"/>
         <classes>
-            <class name="LoginTest">
-
+            <class name="tests.LoginTest">
             </class>
         </classes>
     </test>

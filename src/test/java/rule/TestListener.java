@@ -4,10 +4,14 @@ import org.apache.log4j.Logger;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
+import org.testng.TestListenerAdapter;
 
-public class TestListener implements ITestListener {
+import java.util.List;
+
+public class TestListener extends TestListenerAdapter implements ITestListener {
 
     protected Logger logger = Logger.getLogger(TestListener.class);
+
 
     @Override
     public void onTestStart(ITestResult iTestResult) {
@@ -16,7 +20,7 @@ public class TestListener implements ITestListener {
 
     @Override
     public void onTestSuccess(ITestResult iTestResult) {
-        System.out.println("TEST BAŞARILIIIIIIIII.........");
+
     }
 
     @Override

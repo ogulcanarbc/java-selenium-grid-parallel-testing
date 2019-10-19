@@ -21,12 +21,9 @@ public class OptionsManager {
     public static FirefoxOptions getFirefoxOptions () {
         FirefoxOptions options = new FirefoxOptions();
         FirefoxProfile profile = new FirefoxProfile();
-        //Accept Untrusted Certificates
         profile.setAcceptUntrustedCertificates(true);
         profile.setAssumeUntrustedCertificateIssuer(false);
-        //Use No Proxy Settings
         profile.setPreference("network.proxy.type", 0);
-        //Set Firefox profile to capabilities
         options.setCapability(FirefoxDriver.PROFILE, profile);
         return options;
     }

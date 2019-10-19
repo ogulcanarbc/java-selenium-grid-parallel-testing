@@ -127,11 +127,14 @@ public class ExcelHelper {
     }
 
     public static String getCellValueAsString(Cell cell) {
-        String convertedStringValue = null;
+        String convertedStringValue=null;
         if (cell.getCellType() == CellType.STRING) {
-            convertedStringValue = cell.getStringCellValue().trim();
+            convertedStringValue = cell.getStringCellValue().trim().replace("-","");
         } else if (cell.getCellType() == CellType.NUMERIC) {
             convertedStringValue = String.valueOf(cell.getNumericCellValue()).replace(".0","").trim();
+        }
+        else if(cell.getCellType()==CellType.BLANK){
+            convertedStringValue = "";
         }
         return isEmptyCell(cell) ? "" : convertedStringValue;
     }
