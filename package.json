@@ -7,7 +7,8 @@
   },
   "scripts": {
     "login-datadriven-test": "mvn test -DsuiteXmlFile=TestNG.xml",
-    "login-butik-imageload-parallel-test": "npm-run-all -p  login-datadriven-test"
+    "butik-url-csv-test": "mvn test -DsuiteXmlFile=ButikTestNG.xml",
+    "login-butik-imageload-parallel-test": "npm-run-all -p  login-datadriven-test butik-url-csv-test"
   },
   "author": "ogulcan arabaci",
   "dependencies": {
