@@ -1,0 +1,16 @@
+{
+  "name": "grid-testng-jenkins",
+  "version": "1.0.0",
+  "description": "Project for storing grid pipeline",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "maven-command": "mvn clean install",
+    "grid-tests-ci": "npm-run-all maven-command"
+  },
+  "author": "ogulcan arabaci",
+  "dependencies": {
+    "npm-run-all": "4.1.5"
+  }
+}
