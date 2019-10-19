@@ -6,8 +6,8 @@
     "test": "tests"
   },
   "scripts": {
-    "maven-command": "mvn clean install",
-    "grid-tests-ci": "npm-run-all maven-command"
+    "login-datadriven-test": "mvn test -DsuiteXmlFile=TestNG.xml",
+    "login-butik-imageload-parallel-test": "npm-run-all -p  login-datadriven-test"
   },
   "author": "ogulcan arabaci",
   "dependencies": {
