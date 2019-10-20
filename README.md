@@ -1,5 +1,6 @@
 ### Trendyol Test Otomasyon Case Çalışması
 
+
 #### Gerekli Altyapılar
 * Java JDK 8 +
 * Apache Maven
@@ -11,7 +12,7 @@
 * Docker
 * Maven
 * Selenium Grid
-* TestNG
+* TestNG / Dataprovider (Data Driven Testing)
 * NodeJs
 
 #### Testin Çalıştırılabilmesi İçin Ortam Nasıl Oluşturulur?
