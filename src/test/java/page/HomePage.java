@@ -3,6 +3,7 @@ package page;
 import base.BaseTest;
 import helper.date.DateAndTimeHelper;
 import helper.file.FileHelper;
+import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -12,7 +13,6 @@ import util.BasePageUtil;
 import waitservices.Wait;
 
 import java.io.*;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -62,15 +62,15 @@ public class HomePage extends BasePageUtil {
     }
 
     public void writeBoutiqueUrlAndResponseCode() {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(forBoutiqueUrlAndResponseCodeCsvFile()))) {
-            writer.write(convertForCsvDataFromHashMapToStringBuilderType().toString());
+        try {
+            FileUtils.write(getBoutiqueUrlAndResponseCodeCsvFilePath(), convertForCsvDataFromHashMapToStringBuilderType());
         } catch (IOException e) {
             e.printStackTrace();
         }
         logger.info("Boutique url and response codes saved to csv file successfully.");
     }
 
-    public File forBoutiqueUrlAndResponseCodeCsvFile() {
+    public File getBoutiqueUrlAndResponseCodeCsvFilePath() {
         return FileHelper.getInstance().getFile(BaseTest.localPath + "/reports/boutiqueLinkAndResponseCode/"
                 + DateAndTimeHelper.getNowDateDayMonthYearFormatAsString() + "/"
                 + DateAndTimeHelper.getNowDateDHoursMinuteSecondFormatAsString()
