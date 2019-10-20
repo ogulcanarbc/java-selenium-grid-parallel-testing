@@ -25,7 +25,7 @@
     * İmage list; ngnix,selenium-grid-hub,firefox node, chrome node.
 * Bu compose.yml dosyası tek bir firefox ve chrome tarayıcısını hub'a register eder.(her biri farklı iki nod) Eğer scale etmek istoyorsanız compose dosyasını **`docker-compose up -d --scale firefox=<sayi> --scale chrome=<sayi>`**
 olarak çalıştırmanız yeterlidir.
-* **`localhost:4444`**'e giderek Selenium Grid hub'nın ayakta olduğu ve node'ların register olup olduğu kontrol edilir.
+* **`http://localhost:4444/grid/console`**'e giderek Selenium Grid hub'nın ayakta olduğu ve node'ların register olup olduğu kontrol edilir.
 * **`localhost:8001`**' giderek ngnix'in çalışırlığı kontrol edilir.
 
 #### Test Nasıl Çalıştırılır?
