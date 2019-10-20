@@ -7,8 +7,9 @@
   },
   "scripts": {
     "login-datadriven-test": "mvn test -DsuiteXmlFile=TestNG.xml",
-    "butik-url-csv-test": "mvn test -DsuiteXmlFile=ButikTestNG.xml",
-    "login-butik-imageload-parallel-test": "npm-run-all -p  login-datadriven-test butik-url-csv-test"
+    "butik-imgLoadAndResp-test": "mvn test -DsuiteXmlFile=ImgLoadAndRespTestNG.xml",
+    "butik-linkAndLinkResp-test": "mvn test -DsuiteXmlFile=LinkAndLinkRespTestNG.xml",
+    "login-butik-imageload-parallel-test": "npm-run-all -p  login-datadriven-test butik-imgLoadAndResp-test butik-linkAndLinkResp-test "
   },
   "author": "ogulcan arabaci",
   "dependencies": {

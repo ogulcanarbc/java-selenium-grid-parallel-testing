@@ -5,11 +5,18 @@ import org.apache.log4j.Logger;
 import org.testng.annotations.Test;
 import page.HomePage;
 
-public class BoutiqueUrlAndReponseCodeTest extends BaseTest {
+public class ButikLinkAndResponseCodeTest extends BaseTest {
     Logger logger = Logger.getLogger(DataDrivenLoginTest.class);
 
+
+    /**
+     * STEP-1
+     * Test: Trendyol ana sayfasındaki tüm butik linkleri ve bu linklere request atıldığında dönen
+     * response kodları bir csv dosyasına kaydedilmeli. (Bknz: ./reports/)
+     */
+
     @Test
-    public void boutiqueUrlAndReponseCodeTest() {
+    public void urlAndReponseCodeTest() {
         new HomePage(BaseTest.getDriver())
                 .closePopUp()
                 .writeBoutiqueUrlAndResponseCodeToCsv();
