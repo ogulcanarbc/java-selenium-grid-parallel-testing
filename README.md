@@ -67,7 +67,7 @@ testleri schedule edebilirsiniz.
                 
  * _DataDrivenLoginTest (STEP/3)_ testini çalıştırmak için;
     * **`git 'https://github.com/ogulcanarbc/TestAutomationProject.git'`**
-    * **`sh 'npm login-datadriven-test`**
+    * **`sh 'npm login-datadriven-test'`**
                         
  * Bu üç testi paralel çalıştırmak için:
     * **`git 'https://github.com/ogulcanarbc/TestAutomationProject.git'`**
