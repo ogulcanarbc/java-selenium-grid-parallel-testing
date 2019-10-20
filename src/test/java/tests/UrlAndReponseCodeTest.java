@@ -12,7 +12,7 @@ public class BoutiqueUrlAndReponseCodeTest extends BaseTest {
     public void boutiqueUrlAndReponseCodeTest() {
         new HomePage(BaseTest.getDriver())
                 .closePopUp()
-                .writeBoutiqueUrlAndResponseCode();
+                .writeBoutiqueUrlAndResponseCodeToCsv();
     }
 
 }

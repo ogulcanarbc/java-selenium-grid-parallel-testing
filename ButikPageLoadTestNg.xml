@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="10" name="TrendyoButikResponseSuite" parallel="tests">
+    <test name="chrome-test" parallel="methods" thread-count="5">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="tests.ImgUrlAndResponseTimeTest">
+            </class>
+        </classes>
+    </test>
+<!--    <test name="firefox-test" parallel="methods" thread-count="5">
+        <parameter name="browser" value="firefox"/>
+        <classes>
+            <class name="tests.UrlAndReponseCodeTest">
+            </class>
+        </classes>
+    </test>-->
+</suite>

@@ -16,7 +16,7 @@ import java.util.List;
 
 public class BasePageUtil {
     protected Logger logger = Logger.getLogger(WebDriverWaitServices.class);
-    JavaScriptOperation javaScriptOperation;
+    JavaScriptOperation javaScriptOperation = new JavaScriptOperation();
     protected WebDriver webDriver;
 
     public BasePageUtil(WebDriver driver) {
@@ -77,9 +77,12 @@ public class BasePageUtil {
     protected void scrollToElementWithLocation(int elementLocationX, int elementLocationy) {
         String script = String.format("window.scrollTo(%d, %d);", elementLocationX, elementLocationy);
         javaScriptOperation.executeJS(script, true);
-        logger.info("Scrool to " + elementLocationX + "," + elementLocationX + " location");
     }
 
+    protected void scrollToWebElement(WebElement webElement) {
+        String script = String.format("window.scrollTo(%d, %d);", webElement.getLocation().getX(), webElement.getLocation().getY());
+        javaScriptOperation.executeJS(script, true);
+    }
     protected void scrollToElementBy(By by) {
         WebElement webElement = findElement(by);
         scrollToElementWithLocation(webElement.getLocation().getX(), webElement.getLocation().getY());
@@ -92,5 +95,10 @@ public class BasePageUtil {
         logger.info("Move to " + by.toString() + " element.");
     }
 
+
+    protected void scrollToBottomPageWithJs(){
+        ((JavascriptExecutor) webDriver).executeScript("window.scrollTo(0, document.body.scrollHeight);");
+        logger.info("Scrolled to the end of the page.");
+    }
 
 }
