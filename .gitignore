@@ -26,7 +26,6 @@
 .iml
 .gauge
 *.iml
-reports/
 
 # Gradle
 .idea/**/gradle.xml
