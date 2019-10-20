@@ -1,13 +1,13 @@
 package rule;
 
 import org.apache.log4j.Logger;
-import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 import org.testng.TestListenerAdapter;
 
-import java.util.List;
-
+/**
+ * Testi dinler, mevcut koşan test bilgilerini ve durumunu loglayabilirsiniz.
+ */
 public class TestListener extends TestListenerAdapter implements ITestListener {
 
     protected Logger logger = Logger.getLogger(TestListener.class);
@@ -15,35 +15,23 @@ public class TestListener extends TestListenerAdapter implements ITestListener {
 
     @Override
     public void onTestStart(ITestResult iTestResult) {
+        logger.info(iTestResult.getName() + " Test Start.");
 
     }
 
     @Override
     public void onTestSuccess(ITestResult iTestResult) {
-
+        logger.info(iTestResult.getName() + " Test is Success.");
     }
 
     @Override
     public void onTestFailure(ITestResult iTestResult) {
-
+        logger.info(iTestResult.getName() + " Test is Fail.");
     }
 
     @Override
     public void onTestSkipped(ITestResult iTestResult) {
+        logger.info(iTestResult.getName() + " Test is Skipped.");
     }
 
-    @Override
-    public void onTestFailedButWithinSuccessPercentage(ITestResult iTestResult) {
-
-    }
-
-    @Override
-    public void onStart(ITestContext iTestContext) {
-
-    }
-
-    @Override
-    public void onFinish(ITestContext iTestContext) {
-
-    }
 }
