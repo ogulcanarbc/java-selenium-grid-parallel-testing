@@ -1,7 +1,7 @@
 ### Trendyol Test Otomasyon Case Çalışması
 
 
-#### Gerekli Altyapılar
+#### Gerekli Kurulumlar
 * Java JDK 8 +
 * Apache Maven
 * Docker
