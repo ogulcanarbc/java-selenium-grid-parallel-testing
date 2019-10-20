@@ -32,10 +32,10 @@ public class LoginPage extends BasePageUtil {
         return this;
     }
 
-    public MainPage clickLoginButton(String caseNo) {
+    public MainPage clickLoginButton(String dataNo) {
         click(buttonLogin);
         logger.info("Click Login Button");
-        loginControl(caseNo);
+        loginControl(dataNo);
         return new MainPage(webDriver);
     }
 
@@ -46,19 +46,19 @@ public class LoginPage extends BasePageUtil {
     public void loginControl(String caseNo) {
 
         switch (caseNo) {
-            case "Case1":
+            case "Data1":
                 successLoginControl(); //Case 1
                 break;
-            case "Case5":
-            case "Case6":
-            case "Case2":
+            case "Data5":
+            case "Data6":
+            case "Data2":
                 IncorrectEmailOrPasswordControl(); // Case 2
                 break;
-            case "Case3":
+            case "Data3":
                 blankOrInvalidPasswordControl(); // Case 3
                 break;
-            case "Case4":
-            case "Case7":
+            case "Data4":
+            case "Data7":
                 blankOrInvalidEmailControl(); // Case 4
                 break;
             default:

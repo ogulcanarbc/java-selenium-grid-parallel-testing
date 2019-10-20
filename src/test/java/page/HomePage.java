@@ -6,13 +6,10 @@ import helper.file.FileHelper;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.testng.Assert;
 import restAssuredHelper.RestAssuredUtil;
 import util.BasePageUtil;
-import waitservices.Wait;
 import waitservices.WebDriverWaitServices;
 
 import java.io.*;
@@ -28,7 +25,6 @@ public class HomePage extends BasePageUtil {
     private static final By signInIcon = By.xpath("//i[@class='icon navigation-icon-user']");
     private static final By boutiqueLinkUrl = By.xpath("//*[@class='category-header']//following::li/a");
     private static final By img = By.cssSelector(".image-container>img");
-    private static final By boutiqueCategoryHeadet = By.className("category-header");
 
     protected HashMap<String, String> urlAndRespCode = new HashMap<String, String>();
     protected HashMap<String, String> imgUrlAndResTime = new HashMap<String, String>();
@@ -129,7 +125,7 @@ public class HomePage extends BasePageUtil {
      * .csv uzantılı dosya döndürür. (STEP/1)
      */
     public File getBoutiqueUrlAndResponseCodeCsvFilePath() {
-        return FileHelper.getInstance().getFile(BaseTest.localPath + "/reports/boutiqueLinkAndResponseCode/"
+        return FileHelper.getInstance().getFile(BaseTest.localPath + "/reports/LinkAndResponseCodeResult/"
                 + DateAndTimeHelper.getNowDateDayMonthYearFormatAsString() + "/"
                 + DateAndTimeHelper.getNowDateDHoursMinuteSecondFormatAsString()
                 + ".csv");
@@ -137,10 +133,10 @@ public class HomePage extends BasePageUtil {
 
     /**
      * Scroll edildiğinde butik linklerinin yüklenme süreleri ve bu linklere atılan requestlerden dönen response kodlarını tutacak
-     * * .csv uzantılı dosya döndürür. (STEP/2)
+     * .csv uzantılı dosya döndürür. (STEP/2)
      */
     public File getBoutiqueImgUrlAndResponseTimeCsvFilePath() {
-        return FileHelper.getInstance().getFile(BaseTest.localPath + "/reports/boutiqueImgUrlAndResponseTime/"
+        return FileHelper.getInstance().getFile(BaseTest.localPath + "/reports/ImgUrlAndResponseTimeResult/"
                 + DateAndTimeHelper.getNowDateDayMonthYearFormatAsString() + "/"
                 + DateAndTimeHelper.getNowDateDHoursMinuteSecondFormatAsString()
                 + ".csv");
