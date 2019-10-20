@@ -49,7 +49,7 @@ Komutlarını çalıştırılması yeterli olacaktır.
 package.json dosyası içerisinde mevcut npm scrip komutları bulunmaktadır, bu komutlar ile Jenkins içerisinden sh script yazarak 
 testleri schedule edebilirsiniz.
 
-#### Jenkins Test Çalıştırmak İçin?
+#### Jenkins Aracılığıyla Test Çalıştırmak İçin?
 
 **Gerekli Kurulumlar:**
 * Jenkins, Java JDK 8 ,Maven, NodeJs, npm ve npm-run-all
@@ -58,7 +58,7 @@ testleri schedule edebilirsiniz.
 
 * _LinkAndLinkResponseCodeTest (STEP/1)_ testini çalıştırmak için;
     * **`git 'https://github.com/ogulcanarbc/TestAutomationProject.git'`**
-    * sh **`'npm butik-linkAndLinkResp-test'`**
+    * **`sh 'npm butik-linkAndLinkResp-test'`**
 
 * _ImgLoadTimeAndResponseCodeTest(STEP/2)_ testini çalıştırmak için;
     * **`git 'https://github.com/ogulcanarbc/TestAutomationProject.git'`**
@@ -72,8 +72,12 @@ testleri schedule edebilirsiniz.
     * **`git 'https://github.com/ogulcanarbc/TestAutomationProject.git'`**
     * **`sh 'login-butik-imageload-parallel-test'`**
                                 
+* Test sonuçları ile ilgili csv dosyalarını ve ekran görüntülerini proje dizini içerisindeki **`./reports`** dosyası içinde görebilirsiniz.          
+                
 * Son olarak Html formatında bir raporunuz var ise, test bittikten sonra şu komutu çalıştırarak ngnix sunucusu üzerinde raporu yayınlayabilirsiniz.
     
     *   **`docker cp  <proje-path>/index.html trendyol_web_server_1:/var/www/html/index.html`**
     
     Ardından **`localhost:8001`**'e girerek html raporunuzu görüntüleyebilirsiniz.
+    
+   
