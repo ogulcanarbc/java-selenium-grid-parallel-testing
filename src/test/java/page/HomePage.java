@@ -8,9 +8,10 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import restAssuredConfig.RestConfig;
+import restAssuredHelper.RestAssuredUtil;
 import util.BasePageUtil;
 import waitservices.Wait;
+import waitservices.WebDriverWaitServices;
 
 import java.io.*;
 import java.util.HashMap;
@@ -21,11 +22,12 @@ public class HomePage extends BasePageUtil {
 
     Logger logger = Logger.getLogger(HomePage.class);
 
-    public static final By homePagePopUp = By.xpath("//a[@title='Close']");
-    private final By signInIcon = By.xpath("//i[@class='icon navigation-icon-user']");
-    private final By boutiqueLinkUri = By.xpath("//*[@class='category-header']");
+    private static final By homePagePopUp = By.xpath("//a[@title='Close']");
+    private static final By signInIcon = By.xpath("//i[@class='icon navigation-icon-user']");
+    private static final By boutiqueLinkUrl = By.xpath("//*[@class='category-header']//following::li/a");
+
     HashMap<String, String> urlAndRespCode = new HashMap<String, String>();
-    RestConfig restConfig;
+    RestAssuredUtil restAssuredUtil;
     String href;
     String statusCode;
 
@@ -51,11 +53,10 @@ public class HomePage extends BasePageUtil {
     }
 
     public HashMap<String, String> getBoutiqueUrlAndResponseCodeAfterSet() {
-        Wait.forceSecondWait(4);
-        List<WebElement> elements = findElements(boutiqueLinkUri);
+        List<WebElement> elements = new WebDriverWaitServices().waitPresenceOfAllElementLocatedBy(boutiqueLinkUrl);
         for (int i = 0; i < elements.size(); i++) {
             href = elements.get(i).getAttribute("href");
-            statusCode = String.valueOf(restConfig.getStatusCode(href));
+            statusCode = String.valueOf(restAssuredUtil.getStatusCodeForGetRequest(href));
             urlAndRespCode.put(href, statusCode);
         }
         return urlAndRespCode;
@@ -63,8 +64,10 @@ public class HomePage extends BasePageUtil {
 
     public void writeBoutiqueUrlAndResponseCode() {
         try {
+            logger.info("Writing to csv file. It may take some time. :)");
             FileUtils.write(getBoutiqueUrlAndResponseCodeCsvFilePath(), convertForCsvDataFromHashMapToStringBuilderType());
         } catch (IOException e) {
+            logger.error("Ohh noo... There was a mistake :(  -> " + e.getMessage());
             e.printStackTrace();
         }
         logger.info("Boutique url and response codes saved to csv file successfully.");
