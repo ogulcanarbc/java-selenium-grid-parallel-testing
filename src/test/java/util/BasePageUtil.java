@@ -36,7 +36,7 @@ public class BasePageUtil {
     protected List<WebElement> findElements(By by) {
         try {
             logger.info("FindElements method called -> " + "findelement: " + by.toString() + " element");
-            return new WebDriverWaitServices().waitVisibleOfAllElementLocatedBy(by);
+            return new WebDriverWaitServices().waitPresenceOfAllElementLocatedBy(by);
         } catch (Exception ex) {
             logger.error(ex.getMessage());
             throw ex;

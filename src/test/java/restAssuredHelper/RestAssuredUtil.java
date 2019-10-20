@@ -3,14 +3,13 @@ package restAssuredHelper;
 import base.BaseTest;
 import io.restassured.RestAssured;
 import org.apache.log4j.Logger;
-import org.openqa.selenium.By;
 
 import java.util.concurrent.TimeUnit;
 
 
-public class RestConfig extends BaseTest {
+public class RestAssuredUtil extends BaseTest {
 
-    Logger logger = Logger.getLogger(RestConfig.class);
+    Logger logger = Logger.getLogger(RestAssuredUtil.class);
 
     public static int getStatusCodeForGetRequest(String URL) {
         return RestAssured.get(URL).getStatusCode();
