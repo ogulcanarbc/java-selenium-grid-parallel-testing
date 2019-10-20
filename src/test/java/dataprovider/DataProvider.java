@@ -9,6 +9,15 @@ public class DataProvider {
     private static Logger logger = Logger.getLogger(DataProvider.class);
     public static List<LoginDataModel> loginData;
 
+
+    /**
+     * Excel'den dataları okuyarak, dataprovider'ın anlayacağı 2 boyulu object dizisine çevirir
+     *ve dataprovider'a parametre olarak verir
+     *
+     * @return
+     * @apiNote For Data Driven Testing
+     */
+
     @org.testng.annotations.DataProvider(name = "logindata")
     public Object[][] dataProviderMethod() {
         return getLoginData();

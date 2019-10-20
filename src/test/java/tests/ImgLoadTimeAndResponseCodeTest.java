@@ -4,7 +4,7 @@ import base.BaseTest;
 import org.testng.annotations.Test;
 import page.HomePage;
 
-public class ImgUrlAndResponseTimeTest extends BaseTest {
+public class ImgLoadTimeAndResponseCodeTest extends BaseTest {
 
     /**
      * STEP - 2
@@ -15,6 +15,6 @@ public class ImgUrlAndResponseTimeTest extends BaseTest {
     public void imgUrlAndReponseTimeTest(){
         new HomePage(getDriver())
                 .closePopUp()
-                .writeBoutiqueImgSrcUrlAndResponseTimeToCsv();
+                .writeBoutiqueImageUrlAndResponseTimeToCsv();
     }
 }

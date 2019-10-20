@@ -5,7 +5,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 
 public class JavaScriptOperation {
-    WebDriver jsDriver = new BaseTest().getDriver();
+    WebDriver jsDriver = BaseTest.getDriver();
 
     public JavascriptExecutor getJSExecutor() {
         return (JavascriptExecutor) this.jsDriver;

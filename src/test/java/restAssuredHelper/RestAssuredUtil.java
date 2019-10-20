@@ -5,8 +5,6 @@ import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.apache.log4j.Logger;
 
-import java.util.concurrent.TimeUnit;
-
 
 public class RestAssuredUtil extends BaseTest {
 
@@ -22,11 +20,11 @@ public class RestAssuredUtil extends BaseTest {
 
     public static long getResponseTimeForGetRequest(String URL) {
         Response response = RestAssured.given().get(URL);
-        return response.getStatusCode();
+        return response.getTime();
     }
     public static long getResponseTimeForPostRequest(String URL) {
         Response response = RestAssured.given().get(URL);
-        return response.getStatusCode();
+        return response.getTime();
     }
 
 

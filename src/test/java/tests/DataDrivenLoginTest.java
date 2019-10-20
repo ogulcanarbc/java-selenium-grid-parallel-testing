@@ -11,8 +11,15 @@ import org.testng.annotations.Test;
 
 @Listeners(TestListener.class)
 public class DataDrivenLoginTest extends BaseTest {
-
     Logger logger = Logger.getLogger(DataDrivenLoginTest.class);
+
+    /**
+     * STEP-1
+     * TEST: Kendi tasarlayacağın login caselerini, data driven bir şekilde koşmanı bekliyoruz.
+     *
+     * @param loginData
+     * @throws InterruptedException
+     */
 
     @Test(dataProvider = "logindata", dataProviderClass = DataProvider.class)
     public void loginTest(LoginDataModel loginData) throws InterruptedException {
@@ -24,5 +31,4 @@ public class DataDrivenLoginTest extends BaseTest {
                 .login(loginData.getUsername(), loginData.getPassword())
                 .clickLoginButton(loginData.getCaseNo());
     }
-
 }

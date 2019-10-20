@@ -12,12 +12,11 @@ public class LoginPage extends BasePageUtil {
 
     Logger logger = Logger.getLogger(LoginPage.class);
 
-    private final By signInContainer = By.className("login-register-button-container");
-    private final By txtUserName = By.id("email");
-    private final By txtPassword = By.id("password");
-    private final By buttonLogin = By.id("loginSubmit");
-    private final By errorBox = By.id("errorBox");
-    private final By myAccountArea = By.id("logged-in-container");
+    private static final By txtUserName = By.id("email");
+    private static final By txtPassword = By.id("password");
+    private static final By buttonLogin = By.id("loginSubmit");
+    private static final By errorBox = By.id("errorBox");
+    private static final By myAccountArea = By.id("logged-in-container");
 
     private String expectedInvalidMailOrPasswordMessage = "Hatalı E-Posta / Şifre. Tekrar Deneyin.";
     private String expextedInvalidPasswordMessage = "Lütfen şifre giriniz.";
@@ -28,7 +27,6 @@ public class LoginPage extends BasePageUtil {
     }
 
     public LoginPage login(String email, String password) {
-        //Wait.forceSecondWait(2);
         sendKey(txtUserName, email);
         sendKey(txtPassword, password);
         return this;
@@ -36,29 +34,32 @@ public class LoginPage extends BasePageUtil {
 
     public MainPage clickLoginButton(String caseNo) {
         click(buttonLogin);
-        //  Wait.forceSecondWait(3);
         logger.info("Click Login Button");
         loginControl(caseNo);
         return new MainPage(webDriver);
     }
 
+    /**
+     * 4 adet case'i 7 data ile çokladıktan sonra yapılan kontrol.
+     * @param caseNo
+     */
     public void loginControl(String caseNo) {
 
         switch (caseNo) {
             case "Case1":
-                successLoginControl();
+                successLoginControl(); //Case 1
                 break;
             case "Case5":
             case "Case6":
             case "Case2":
-                IncorrectEmailOrPasswordControl();
+                IncorrectEmailOrPasswordControl(); // Case 2
                 break;
             case "Case3":
-                blankOrInvalidPasswordControl();
+                blankOrInvalidPasswordControl(); // Case 3
                 break;
             case "Case4":
             case "Case7":
-                blankOrInvalidEmailControl();
+                blankOrInvalidEmailControl(); // Case 4
                 break;
             default:
                 break;
@@ -66,6 +67,9 @@ public class LoginPage extends BasePageUtil {
 
     }
 
+    /**
+     * @apiNote Testler paralel ve aynı anda koştuğıu için
+     */
     private void successLoginControl() {
 
         Assert.assertTrue(isExistElement(myAccountArea), "-> " + BaseTest.caseNo + "Hesabım Alanı Gözükmüyor, Başarılı Login Olunamamış! ");
