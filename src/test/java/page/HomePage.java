@@ -66,7 +66,6 @@ public class HomePage extends BasePageUtil {
         for (int i = 0; i < webElements.size(); i++) {
             startTime = System.currentTimeMillis();
             scrollToWebElement(webElements.get(i));
-            //scrollToElementWithLocation(webElements.get(i).getLocation().getX(),webElements.get(i).getLocation().getY());
             new WebDriverWaitServices().attributeToBeNotEmptyBy(webElements.get(i), "src");
             endTime = System.currentTimeMillis();
             estimatedTime = endTime - startTime;

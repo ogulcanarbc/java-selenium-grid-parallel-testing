@@ -8,7 +8,6 @@ import page.HomePage;
 public class LinkAndLinkResponseCodeTest extends BaseTest {
     Logger logger = Logger.getLogger(DataDrivenLoginTest.class);
 
-
     /**
      * STEP-1
      * Test: Trendyol ana sayfasındaki tüm butik linkleri ve bu linklere request atıldığında dönen
@@ -17,9 +16,8 @@ public class LinkAndLinkResponseCodeTest extends BaseTest {
 
     @Test
     public void urlAndReponseCodeTest() {
-        new HomePage(BaseTest.getDriver())
+        new HomePage(getDriver())
                 .closePopUp()
                 .writeBoutiqueUrlAndResponseCodeToCsv();
     }
-
 }

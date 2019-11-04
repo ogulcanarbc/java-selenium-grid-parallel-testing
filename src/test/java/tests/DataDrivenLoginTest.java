@@ -32,7 +32,7 @@ public class DataDrivenLoginTest extends BaseTest {
     public void loginTest(LoginDataModel loginData) throws InterruptedException {
         BaseTest.caseNo = loginData.getCaseNo();
 
-        new HomePage(BaseTest.getDriver())
+        new HomePage(getDriver())
                 .closePopUp()
                 .clickSignInIconButton()
                 .login(loginData.getUsername(), loginData.getPassword())
