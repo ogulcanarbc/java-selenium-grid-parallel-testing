@@ -6,7 +6,7 @@
     "test": "tests"
   },
   "scripts": {
-    "login-datadriven-test": "mvn test -DsuiteXmlFile=TestNG.xml",
+    "login-datadriven-test": "mvn test -DsuiteXmlFile=LoginDataDrivenTestNG.xml",
     "butik-imgLoadAndResp-test": "mvn test -DsuiteXmlFile=ImgLoadAndRespTestNG.xml",
     "butik-linkAndLinkResp-test": "mvn test -DsuiteXmlFile=LinkAndLinkRespTestNG.xml",
     "login-butik-imageload-parallel-test": "npm-run-all -p  login-datadriven-test butik-imgLoadAndResp-test butik-linkAndLinkResp-test "
@@ -16,3 +16,4 @@
     "npm-run-all": "4.1.5"
   }
 }
+
