@@ -1,22 +1,28 @@
-web_server:
-  image: bilalmitaf/mynginx:0.1
-  ports:
-    - "8001:80"
-hub:
-  image: selenium/hub
-  ports:
-    - "4444:4444"
-firefox:
-  image: selenium/node-firefox:3.5
-  environment:
-    - NODE_MAX_INSTANCE=10
-    - NODE_MAX_SESSION=10
-  links:
-  - hub
-chrome:
-  image: selenium/node-chrome:3.5
-  environment:
-    - NODE_MAX_INSTANCE=10
-    - NODE_MAX_SESSION=10
-  links:
-  - hub
+version: "2"
+services:
+  hub:
+    image: selenium/hub
+    ports:
+      - 4444:4444
+    environment:
+      GRID_MAX_SESSION: 10
+  firefox:
+    image: selenium/node-firefox
+    depends_on:
+      - hub
+    environment:
+      HUB_HOST: hub
+      NODE_MAX_INSTANCES: 1
+      NODE_MAX_SESSION: 1
+  chrome:
+    image: selenium/node-chrome
+    depends_on:
+      - hub
+    environment:
+      HUB_HOST: hub
+      NODE_MAX_INSTANCES: 1
+      NODE_MAX_SESSION: 1
+  ngnix:
+    image: oglcnarbc/myngnix:1.0
+    ports:
+      - "8001:80"

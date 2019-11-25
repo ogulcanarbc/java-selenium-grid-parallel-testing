@@ -18,11 +18,11 @@ public class DataDrivenLoginTest extends BaseTest {
      * TEST: Kendi tasarlayacağın login caselerini, data driven bir şekilde koşmanı bekliyoruz.
      * <p>
      * <p>
-     * CaseNo	Steps	Expected Result
-     * Case1	Doğru Kullanıcı adı ve Şifre girilir.	Login olunduğu görülür
-     * Case2	Yanlılş Kullanıcı adı ve Şifre girilir.	"Hatalı E-Posta / Şifre. Tekrar Deneyin." mesajı geldiği görülür
-     * Case3	Doğru Kullanıcı ad ve Boş şifre girilir.	"Lütfen şifre giriniz." mesajının geldiği görülür
-     * Case4	Boş Kullanıcı adı ve Doğru şifre girilir.	"Lütfen email adresinizi giriniz." mesajının geldiği görülür
+     * CaseNo	Steps	                                        Expected Result
+     * Case1	Doğru Kullanıcı adı ve Şifre girilir.	        Login olunduğu görülür
+     * Case2	Yanlılş Kullanıcı adı ve Şifre girilir.	        Hatalı E-Posta / Şifre. Tekrar Deneyin." mesajı geldiği görülür
+     * Case3	Doğru Kullanıcı ad ve Boş şifre girilir.	    Lütfen şifre giriniz." mesajının geldiği görülür
+     * Case4	Boş Kullanıcı adı ve Doğru şifre girilir.	    Lütfen email adresinizi giriniz." mesajının geldiği görülür
      *
      * @param loginData
      * @throws InterruptedException
