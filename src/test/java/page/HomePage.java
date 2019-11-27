@@ -8,7 +8,7 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import restAssuredHelper.RestAssuredUtil;
+import helper.RestAssuredService;
 import util.BasePageUtil;
 import waitservices.WebDriverWaitServices;
 
@@ -28,7 +28,7 @@ public class HomePage extends BasePageUtil {
 
     protected HashMap<String, String> urlAndRespCode = new HashMap<String, String>();
     protected HashMap<String, String> imgUrlAndResTime = new HashMap<String, String>();
-    protected RestAssuredUtil restAssuredUtil;
+    protected RestAssuredService restAssuredService;
     private static String href;
     private static String statusCode;
     private static String imgSrcUrl;
@@ -84,7 +84,7 @@ public class HomePage extends BasePageUtil {
         List<WebElement> elements = new WebDriverWaitServices().waitPresenceOfAllElementLocatedBy(boutiqueLinkUrl);
         for (int i = 0; i < elements.size(); i++) {
             href = elements.get(i).getAttribute("href");
-            statusCode = String.valueOf(restAssuredUtil.getStatusCodeForGetRequest(href));
+            statusCode = String.valueOf(restAssuredService.getStatusCodeForGetRequest(href));
             urlAndRespCode.put(href, statusCode);
         }
         return urlAndRespCode;
@@ -178,7 +178,7 @@ public class HomePage extends BasePageUtil {
                     .append(',')
                     .append(entry.getValue())
                     .append(",")
-                    .append(RestAssuredUtil.getStatusCodeForGetRequest(imgSrcUrl))
+                    .append(RestAssuredService.getStatusCodeForGetRequest(imgSrcUrl))
                     .append("\n");
         }
         return stringBuilder;

@@ -1,4 +1,4 @@
-package restAssuredHelper;
+package helper;
 
 import base.BaseTest;
 import io.restassured.RestAssured;
@@ -6,9 +6,9 @@ import io.restassured.response.Response;
 import org.apache.log4j.Logger;
 
 
-public class RestAssuredUtil extends BaseTest {
+public class RestAssuredService extends BaseTest {
 
-    Logger logger = Logger.getLogger(RestAssuredUtil.class);
+    Logger logger = Logger.getLogger(RestAssuredService.class);
 
     public static int getStatusCodeForGetRequest(String URL) {
         return RestAssured.get(URL).getStatusCode();

@@ -11,12 +11,9 @@ public class ExcelFileFactory {
     ExcelFile excelFile;
     if (excelFileType == ExcelFileType.LOCAL) {
       excelFile = new LocalExcelFile();
-    } else if (excelFileType == ExcelFileType.FTP) {
-      excelFile = new FtpExcelFile();
     } else {
       throw new InvalidOperationException("Excel file type is not found");
     }
     return excelFile;
   }
-
 }
