@@ -42,8 +42,6 @@ public class BaseTest {
     @Parameters(value = {"browser"})
     public void setup(String browser) throws MalformedURLException {
         PropertyConfigurator.configure(localPath + "/src/test/resources/properties/log4j.properties");
-        //RestAssured.baseURI = url;
-       // request = RestAssured.given();
         driver.set(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilityFactory.getCapabilities(browser)));
         driver.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get().navigate().to(url);

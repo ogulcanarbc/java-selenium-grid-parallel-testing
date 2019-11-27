@@ -6,7 +6,7 @@ import io.restassured.response.Response;
 import org.apache.log4j.Logger;
 
 
-public class RestAssuredService extends BaseTest {
+public class RestAssuredService {
 
     Logger logger = Logger.getLogger(RestAssuredService.class);
 
