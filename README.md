@@ -1,4 +1,3 @@
-### Trendyol Test Otomasyon Case Çalışması
 
 
 #### Gerekli Kurulumlar
