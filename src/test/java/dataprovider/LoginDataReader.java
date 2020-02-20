@@ -64,7 +64,7 @@ public enum LoginDataReader {
         }
     }
 
-    protected LoginDataModel createLoginDate(Row row) {  //TODO düzeldilecek
+    protected LoginDataModel createLoginDate(Row row) {  
         return new LoginDataBuilder()
                 .withCaseName(getRowCellValueAsString(row,CASE_NAME))
                 .withUsername(getRowCellValueAsString(row, USERNAME))
