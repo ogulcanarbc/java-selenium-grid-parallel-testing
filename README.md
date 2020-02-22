@@ -18,7 +18,7 @@
 
 ###### Sırasıyla;
 
-* Proje github'dan clone edilir.
+* Proje Github'dan clone edilir.
 * Docker Deamon başlatışır ve projenin olduğu dizinin içine girilerek **`docker-compose up -d`**  komutu çalıştırılır.
     * Bu yml dosyası gerekli altyapıları içindeki image'lar ile kurar. 
     * İmage list; ngnix,selenium-grid-hub,firefox node, chrome node.
