@@ -14,7 +14,7 @@
 * TestNG / Dataprovider (Data Driven Testing)
 * NodeJs
 
-#### Testin Çalıştırılabilmesi İçin Ortam Nasıl Oluşturulur?
+#### Testin Çalıştırılabilmesi İçin Gerekli Ortam Nasıl Oluşturulur?
 
 ###### Sırasıyla;
 
