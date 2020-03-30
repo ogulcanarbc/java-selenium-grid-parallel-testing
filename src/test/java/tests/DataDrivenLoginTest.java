@@ -14,10 +14,6 @@ public class DataDrivenLoginTest extends BaseTest {
     Logger logger = Logger.getLogger(DataDrivenLoginTest.class);
 
     /**
-     * STEP-1
-     * TEST: Kendi tasarlayacağın login caselerini, data driven bir şekilde koşmanı bekliyoruz.
-     * <p>
-     * <p>
      * CaseNo	Steps	                                        Expected Result
      * Case1	Doğru Kullanıcı adı ve Şifre girilir.	        Login olunduğu görülür
      * Case2	Yanlılş Kullanıcı adı ve Şifre girilir.	        Hatalı E-Posta / Şifre. Tekrar Deneyin." mesajı geldiği görülür
