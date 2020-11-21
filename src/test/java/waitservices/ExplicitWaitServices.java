@@ -9,17 +9,17 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
-public class WebDriverWaitServices extends Wait {
-    protected Logger logger = Logger.getLogger(WebDriverWaitServices.class);
+public class ExplicitWaitServices extends Wait {
+    protected Logger logger = Logger.getLogger(ExplicitWaitServices.class);
 
     JavaScriptOperation javaScriptOperation;
     public WebDriverWait wait;
 
-    public WebDriverWaitServices() {
+    public ExplicitWaitServices() {
         wait = new WebDriverWait(webdriver, 30);
     }
 
-    public WebDriverWaitServices(int timeOutSeconds) {
+    public ExplicitWaitServices(int timeOutSeconds) {
         wait = new WebDriverWait(webdriver, timeOutSeconds);
     }
 

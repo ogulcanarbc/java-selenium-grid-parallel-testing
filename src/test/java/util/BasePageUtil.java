@@ -8,14 +8,13 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import waitservices.WebDriverWaitServices;
+import waitservices.ExplicitWaitServices;
 
-import javax.swing.*;
 import java.util.List;
 
 public class BasePageUtil {
-    protected Logger logger = Logger.getLogger(WebDriverWaitServices.class);
+
+    protected Logger logger = Logger.getLogger(ExplicitWaitServices.class);
     JavaScriptOperation javaScriptOperation = new JavaScriptOperation();
     protected WebDriver webDriver;
 
@@ -26,7 +25,7 @@ public class BasePageUtil {
     protected WebElement findElement(By by) {
         try {
             logger.info("FindElement method called -> " + "findelement: " + by.toString() + " element");
-            return new WebDriverWaitServices().waitVisibleOfElementLocatedBy(by);
+            return new ExplicitWaitServices().waitVisibleOfElementLocatedBy(by);
         } catch (Exception ex) {
             logger.error(ex.getMessage());
             throw ex;
@@ -36,7 +35,7 @@ public class BasePageUtil {
     protected List<WebElement> findElements(By by) {
         try {
             logger.info("FindElements method called -> " + "findelement: " + by.toString() + " element");
-            return new WebDriverWaitServices().waitPresenceOfAllElementLocatedBy(by);
+            return new ExplicitWaitServices().waitPresenceOfAllElementLocatedBy(by);
         } catch (Exception ex) {
             logger.error(ex.getMessage());
             throw ex;
@@ -46,7 +45,7 @@ public class BasePageUtil {
     protected void click(By by) {
         try {
             logger.info("Click method called -> " + "clicking: " + by.toString() + " element");
-            new WebDriverWaitServices().waitElementToBeClickableBy(by).click();
+            new ExplicitWaitServices().waitElementToBeClickableBy(by).click();
         } catch (Exception ex) {
             logger.error(ex.getMessage());
             throw ex;
@@ -56,7 +55,7 @@ public class BasePageUtil {
     protected void sendKey(By by, String text) {
         try {
             logger.info("SendKey method called -> " + "sendkey: " + by.toString() + " element");
-            new WebDriverWaitServices().waitVisibleOfElementLocatedBy(by).sendKeys(text);
+            new ExplicitWaitServices().waitVisibleOfElementLocatedBy(by).sendKeys(text);
             logger.info("The text " + text + " was entered in");
         } catch (Exception ex) {
             logger.error(ex.getMessage());
@@ -66,7 +65,7 @@ public class BasePageUtil {
 
     protected Boolean isExistElement(By by) {
         try {
-            new WebDriverWaitServices().waitPresenceOfElementLocatedBy(by);
+            new ExplicitWaitServices().waitPresenceOfElementLocatedBy(by);
             return true;
         } catch (Exception ex) {
             logger.error(ex.getMessage());

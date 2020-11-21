@@ -72,9 +72,11 @@ testleri schedule edebilirsiniz.
     * **`git 'https://github.com/ogulcanarbc/TestAutomationProject.git'`**
     * **`sh 'login-butik-imageload-parallel-test'`**
                                 
-* Test sonuçları ile ilgili csv dosyalarını ve ekran görüntülerini proje dizini içerisindeki **`./reports`** dosyası içinde görebilirsiniz.          
-                
-* Son olarak Html formatında bir raporunuz var ise, test bittikten sonra şu komutu çalıştırarak ngnix sunucusu üzerinde raporu yayınlayabilirsiniz.
+* Test sonuçları ile ilgili csv dosyalarını ve ekran görüntülerini proje dizini içerisindeki **`./reports`** dosyası içinde görebilirsiniz.    
+
+* **`allure serve allure-results`** komutunu çalıştırarak allure raporunuzu oluşturabilirsiniz.
+      
+* Son olarak Html formatında bir raporunuz var ise (örn. allure report), test bittikten sonra şu komutu çalıştırarak ngnix sunucusu üzerinde raporu yayınlayabilirsiniz.
     
     *   **`docker cp  <proje-path>/index.html trendyol_web_server_1:/var/www/html/index.html`**
     

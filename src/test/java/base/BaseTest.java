@@ -6,11 +6,9 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
+import groovy.util.logging.Slf4j;
 import helper.date.DateAndTimeHelper;
 import helper.file.FileHelper;
-import io.restassured.RestAssured;
-import io.restassured.builder.RequestSpecBuilder;
-import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.PropertyConfigurator;
@@ -19,18 +17,18 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.ITestContext;
-import org.testng.ITestListener;
 import org.testng.ITestResult;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Parameters;
-import waitservices.WebDriverWaitServices;
+import org.testng.annotations.*;
+import rule.TestListener;
+import waitservices.ExplicitWaitServices;
 
+
+@Listeners(TestListener.class)
+@Slf4j
 public class BaseTest {
 
     protected static ThreadLocal<RemoteWebDriver> driver = new ThreadLocal<>();
-    protected static WebDriverWaitServices webdriver;
+    protected static ExplicitWaitServices webdriver;
     protected CapabilityFactory capabilityFactory = new CapabilityFactory();
     public static String caseNo;
     public static String browserName;

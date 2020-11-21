@@ -11,6 +11,7 @@ public class ImgLoadTimeAndResponseCodeTest extends BaseTest {
      * TEST: Scroll edildiğinde gelen butik image linklerinin yüklenme sürelerin ve response kodları
      * bir csv dosysasına kaydedilmeli. (Bknz: ./reports/)
      */
+
     @Test
     public void imgUrlAndReponseTimeTest(){
         new HomePage(getDriver())

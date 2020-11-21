@@ -2,6 +2,7 @@ package tests;
 
 import dataprovider.DataProvider;
 import dataprovider.LoginDataModel;
+import groovy.util.logging.Slf4j;
 import org.apache.log4j.Logger;
 import page.HomePage;
 import rule.TestListener;
@@ -9,9 +10,8 @@ import base.BaseTest;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-@Listeners(TestListener.class)
+
 public class DataDrivenLoginTest extends BaseTest {
-    Logger logger = Logger.getLogger(DataDrivenLoginTest.class);
 
     /**
      * CaseNo	Steps	                                        Expected Result

@@ -6,7 +6,6 @@ import org.testng.annotations.Test;
 import page.HomePage;
 
 public class LinkAndLinkResponseCodeTest extends BaseTest {
-    Logger logger = Logger.getLogger(DataDrivenLoginTest.class);
 
     /**
      * STEP-1

@@ -8,9 +8,9 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import helper.RestAssuredService;
+import helper.RestAssuredHelper;
 import util.BasePageUtil;
-import waitservices.WebDriverWaitServices;
+import waitservices.ExplicitWaitServices;
 
 import java.io.*;
 import java.util.HashMap;
@@ -28,7 +28,7 @@ public class HomePage extends BasePageUtil {
 
     protected HashMap<String, String> urlAndRespCode = new HashMap<String, String>();
     protected HashMap<String, String> imgUrlAndResTime = new HashMap<String, String>();
-    protected RestAssuredService restAssuredService;
+    protected RestAssuredHelper restAssuredHelper;
     private static String href;
     private static String statusCode;
     private static String imgSrcUrl;
@@ -66,7 +66,7 @@ public class HomePage extends BasePageUtil {
         for (int i = 0; i < webElements.size(); i++) {
             startTime = System.currentTimeMillis();
             scrollToWebElement(webElements.get(i));
-            new WebDriverWaitServices().attributeToBeNotEmptyBy(webElements.get(i), "src");
+            new ExplicitWaitServices().attributeToBeNotEmptyBy(webElements.get(i), "src");
             endTime = System.currentTimeMillis();
             estimatedTime = endTime - startTime;
             imgLoadTime = String.valueOf((double) estimatedTime / 1000);
@@ -81,10 +81,10 @@ public class HomePage extends BasePageUtil {
      * @return Butik url response time  ve response kodlarını HashMap formatında döndürür. (STEP/1)
      */
     public HashMap<String, String> getBoutiqueUrlAndResponseCodeAfterSet() {
-        List<WebElement> elements = new WebDriverWaitServices().waitPresenceOfAllElementLocatedBy(boutiqueLinkUrl);
+        List<WebElement> elements = new ExplicitWaitServices().waitPresenceOfAllElementLocatedBy(boutiqueLinkUrl);
         for (int i = 0; i < elements.size(); i++) {
             href = elements.get(i).getAttribute("href");
-            statusCode = String.valueOf(restAssuredService.getStatusCodeForGetRequest(href));
+            statusCode = String.valueOf(restAssuredHelper.getStatusCodeForGetRequest(href));
             urlAndRespCode.put(href, statusCode);
         }
         return urlAndRespCode;
@@ -178,7 +178,7 @@ public class HomePage extends BasePageUtil {
                     .append(',')
                     .append(entry.getValue())
                     .append(",")
-                    .append(RestAssuredService.getStatusCodeForGetRequest(imgSrcUrl))
+                    .append(RestAssuredHelper.getStatusCodeForGetRequest(imgSrcUrl))
                     .append("\n");
         }
         return stringBuilder;
