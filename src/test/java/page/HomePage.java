@@ -8,7 +8,7 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import helper.RestAssuredHelper;
-import wait.ExplicitWaitServices;
+import wait.ExplicitWaitServiceServices;
 
 import java.io.*;
 import java.util.HashMap;
@@ -60,7 +60,7 @@ public class HomePage extends BasePage {
         for (int i = 0; i < webElements.size(); i++) {
             startTime = System.currentTimeMillis();
             scrollToWebElement(webElements.get(i));
-            new ExplicitWaitServices().attributeToBeNotEmptyBy(webElements.get(i), "src");
+            new ExplicitWaitServiceServices().attributeToBeNotEmptyBy(webElements.get(i), "src");
             endTime = System.currentTimeMillis();
             estimatedTime = endTime - startTime;
             imgLoadTime = String.valueOf((double) estimatedTime / 1000);
@@ -75,7 +75,7 @@ public class HomePage extends BasePage {
      * @return Butik url response time  ve response kodlarını HashMap formatında döndürür. (STEP/1)
      */
     public HashMap<String, String> getBoutiqueUrlAndResponseCodeAfterSet() {
-        List<WebElement> elements = new ExplicitWaitServices().waitPresenceOfAllElementLocatedBy(boutiqueLinkUrl);
+        List<WebElement> elements = new ExplicitWaitServiceServices().waitPresenceOfAllElementLocatedBy(boutiqueLinkUrl);
         for (int i = 0; i < elements.size(); i++) {
             href = elements.get(i).getAttribute("href");
             statusCode = String.valueOf(RestAssuredHelper.getStatusCodeForGetRequest(href));

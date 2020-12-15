@@ -9,29 +9,28 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
-public class ExplicitWaitServices extends Wait {
-    protected Logger logger = Logger.getLogger(ExplicitWaitServices.class);
+public class ExplicitWaitServiceServices extends WaitService {
+
+    protected Logger logger = Logger.getLogger(ExplicitWaitServiceServices.class);
 
     JavaScriptOperation javaScriptOperation;
-    public WebDriverWait wait;
 
-    public ExplicitWaitServices() {
-        wait = new WebDriverWait(webdriver, 30);
+    public ExplicitWaitServiceServices() {
+        explicitWebDriverWait = new WebDriverWait(webdriver, 30);
     }
 
-    public ExplicitWaitServices(int timeOutSeconds) {
-        wait = new WebDriverWait(webdriver, timeOutSeconds);
+    public ExplicitWaitServiceServices(int timeOutSeconds) {
+        explicitWebDriverWait = new WebDriverWait(webdriver, timeOutSeconds);
     }
 
-    public ExplicitWaitServices(int timeOutSeconds, int sleepInMs) {
-        wait = new WebDriverWait(webdriver, timeOutSeconds,sleepInMs);
+    public ExplicitWaitServiceServices(int timeOutSeconds, int sleepInMs) {
+        explicitWebDriverWait = new WebDriverWait(webdriver, timeOutSeconds,sleepInMs);
     }
-
 
     public WebElement waitVisibleOfElementLocatedBy(By by) {
         try {
             logger.info("Waiting for " + by.toString() + " element locator");
-            return wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+            return explicitWebDriverWait.until(ExpectedConditions.visibilityOfElementLocated(by));
         } catch (AssertionError ex) {
             logger.error(by + " elements can not find! -> " + ex.getMessage());
             throw ex;
@@ -41,7 +40,7 @@ public class ExplicitWaitServices extends Wait {
     public List<WebElement> waitVisibleOfAllElementLocatedBy(By by) {
         try {
             logger.info("Waiting for " + by.toString() + " element locator");
-            return wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(by));
+            return explicitWebDriverWait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(by));
         } catch (AssertionError ex) {
             logger.error(by + " elements can not find! -> " + ex.getMessage());
             throw ex;
@@ -51,7 +50,7 @@ public class ExplicitWaitServices extends Wait {
     public WebElement waitPresenceOfElementLocatedBy(By by) {
         try {
             logger.info("Waiting for " + by.toString() + " element locator");
-            return wait.until(ExpectedConditions.presenceOfElementLocated(by));
+            return explicitWebDriverWait.until(ExpectedConditions.presenceOfElementLocated(by));
         } catch (AssertionError ex) {
             logger.error(by + " elements can not find! -> " + ex.getMessage());
             throw ex;
@@ -61,7 +60,7 @@ public class ExplicitWaitServices extends Wait {
     public List<WebElement> waitPresenceOfAllElementLocatedBy(By by) {
         try {
             logger.info("Waiting for " + by.toString() + " element locator");
-            return wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(by));
+            return explicitWebDriverWait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(by));
         } catch (AssertionError ex) {
             logger.error(by + " elements can not find! -> " + ex.getMessage());
             throw ex;
@@ -72,7 +71,7 @@ public class ExplicitWaitServices extends Wait {
     public WebElement waitElementToBeClickableBy(By by) {
         try {
             logger.info("Expected to be clickable" + by.toString() + " element locator");
-            return wait.until(ExpectedConditions.elementToBeClickable(by));
+            return explicitWebDriverWait.until(ExpectedConditions.elementToBeClickable(by));
         } catch (AssertionError ex) {
             logger.error(by + " elements can not clickable! -> " + ex.getMessage());
             throw ex;
@@ -81,7 +80,7 @@ public class ExplicitWaitServices extends Wait {
 
     public Boolean attributeToBeNotEmptyBy(WebElement webElement, String attribute) {
         try {
-            wait.until(ExpectedConditions.attributeToBeNotEmpty(webElement, attribute));
+            explicitWebDriverWait.until(ExpectedConditions.attributeToBeNotEmpty(webElement, attribute));
             return true;
         } catch (AssertionError ex) {
             return false;
