@@ -1,4 +1,4 @@
-package waitservices;
+package wait;
 
 import helper.JavaScriptOperation;
 import org.apache.log4j.Logger;
@@ -22,6 +22,11 @@ public class ExplicitWaitServices extends Wait {
     public ExplicitWaitServices(int timeOutSeconds) {
         wait = new WebDriverWait(webdriver, timeOutSeconds);
     }
+
+    public ExplicitWaitServices(int timeOutSeconds, int sleepInMs) {
+        wait = new WebDriverWait(webdriver, timeOutSeconds,sleepInMs);
+    }
+
 
     public WebElement waitVisibleOfElementLocatedBy(By by) {
         try {
@@ -82,7 +87,6 @@ public class ExplicitWaitServices extends Wait {
             return false;
         }
     }
-
 
 }
 

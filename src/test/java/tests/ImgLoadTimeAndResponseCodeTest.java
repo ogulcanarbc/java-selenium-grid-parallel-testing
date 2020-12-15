@@ -13,8 +13,8 @@ public class ImgLoadTimeAndResponseCodeTest extends BaseTest {
      */
 
     @Test
-    public void imgUrlAndReponseTimeTest(){
-        new HomePage(getDriver())
+    public void imgUrlAndResponseTimeTest(){
+        new HomePage()
                 .closePopUp()
                 .writeBoutiqueImageUrlAndResponseTimeToCsv();
     }

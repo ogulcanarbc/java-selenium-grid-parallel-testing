@@ -14,8 +14,8 @@ public class LinkAndLinkResponseCodeTest extends BaseTest {
      */
 
     @Test
-    public void urlAndReponseCodeTest() {
-        new HomePage(getDriver())
+    public void urlAndResponseCodeTest() {
+        new HomePage()
                 .closePopUp()
                 .writeBoutiqueUrlAndResponseCodeToCsv();
     }

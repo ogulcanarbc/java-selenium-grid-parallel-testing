@@ -3,12 +3,9 @@ package page;
 import base.BaseTest;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import util.BasePageUtil;
-import waitservices.Wait;
 
-public class LoginPage extends BasePageUtil {
+public class LoginPage extends BasePage {
 
     Logger logger = Logger.getLogger(LoginPage.class);
 
@@ -22,9 +19,6 @@ public class LoginPage extends BasePageUtil {
     private String expextedInvalidPasswordMessage = "Lütfen şifre giriniz.";
     private String expetedInvalidMailMessage = "Lütfen email adresinizi giriniz.";
 
-    public LoginPage(WebDriver driver) {
-        super(driver);
-    }
 
     public LoginPage login(String email, String password) {
         sendKey(txtUserName, email);
@@ -36,7 +30,7 @@ public class LoginPage extends BasePageUtil {
         click(buttonLogin);
         logger.info("Click Login Button");
         loginControl(dataNo);
-        return new MainPage(webDriver);
+        return new MainPage();
     }
 
     /**
@@ -92,7 +86,6 @@ public class LoginPage extends BasePageUtil {
         Assert.assertTrue(expetedInvalidMailMessage.equalsIgnoreCase(findElement(errorBox).getText()), "Yanlış Hata Mesajı!. " +
                 BaseTest.caseNo + " -> Beklenen Mesaj: " + expetedInvalidMailMessage + ",Gelen Mesaj: " + findElement(errorBox).getText());
     }
-
 
 }
 

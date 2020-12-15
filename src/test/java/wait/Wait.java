@@ -1,4 +1,4 @@
-package waitservices;
+package wait;
 
 import base.BaseTest;
 import org.openqa.selenium.WebDriver;

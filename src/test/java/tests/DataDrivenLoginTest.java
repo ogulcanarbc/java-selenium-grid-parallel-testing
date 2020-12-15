@@ -10,7 +10,6 @@ import base.BaseTest;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-
 public class DataDrivenLoginTest extends BaseTest {
 
     /**
@@ -25,10 +24,10 @@ public class DataDrivenLoginTest extends BaseTest {
      */
 
     @Test(dataProvider = "logindata", dataProviderClass = DataProvider.class)
-    public void loginTest(LoginDataModel loginData) throws InterruptedException {
-        BaseTest.caseNo = loginData.getCaseNo();
+    public void loginTest(LoginDataModel loginData) {
 
-        new HomePage(getDriver())
+        BaseTest.caseNo = loginData.getCaseNo();
+        new HomePage()
                 .closePopUp()
                 .clickSignInIconButton()
                 .login(loginData.getUsername(), loginData.getPassword())

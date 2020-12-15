@@ -1,4 +1,4 @@
-package util;
+package page;
 
 import base.BaseTest;
 import helper.JavaScriptOperation;
@@ -8,18 +8,18 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import waitservices.ExplicitWaitServices;
+import wait.ExplicitWaitServices;
 
 import java.util.List;
 
-public class BasePageUtil {
+public class BasePage {
 
     protected Logger logger = Logger.getLogger(ExplicitWaitServices.class);
     JavaScriptOperation javaScriptOperation = new JavaScriptOperation();
     protected WebDriver webDriver;
 
-    public BasePageUtil(WebDriver driver) {
-        this.webDriver = driver;
+    public BasePage() {
+        this.webDriver = BaseTest.getDriver();
     }
 
     protected WebElement findElement(By by) {
@@ -93,7 +93,6 @@ public class BasePageUtil {
         actions.moveToElement(findElement(by)).build().perform();
         logger.info("Move to " + by.toString() + " element.");
     }
-
 
     protected void scrollToBottomPageWithJs(){
         ((JavascriptExecutor) webDriver).executeScript("window.scrollTo(0, document.body.scrollHeight);");

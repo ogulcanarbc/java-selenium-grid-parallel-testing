@@ -20,7 +20,6 @@ import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 import rule.TestListener;
-import waitservices.ExplicitWaitServices;
 
 
 @Listeners(TestListener.class)
@@ -28,7 +27,6 @@ import waitservices.ExplicitWaitServices;
 public class BaseTest {
 
     protected static ThreadLocal<RemoteWebDriver> driver = new ThreadLocal<>();
-    protected static ExplicitWaitServices webdriver;
     protected CapabilityFactory capabilityFactory = new CapabilityFactory();
     public static String caseNo;
     public static String browserName;
@@ -56,7 +54,7 @@ public class BaseTest {
         File screenShotName;
         if (!iTestResult.isSuccess()) {
             screenShotName = FileHelper.getInstance()
-                    .getFile(localPath+"/reports/screenshots/" + browserName + "/"
+                    .getFile(localPath + "/reports/screenshots/" + browserName + "/"
                             + DateAndTimeHelper.getNowDateDayMonthYearFormatAsString() + "/"
                             + iTestResult.getName() + caseNo + "-"
                             + DateAndTimeHelper.getNowDateDHoursMinuteSecondFormatAsString() + ".png");
@@ -72,7 +70,7 @@ public class BaseTest {
 
     @AfterClass
     void terminateDriver(ITestContext iTestContext) {
-         iTestContext.getFailedTests().getAllResults().stream().forEach(System.out::println);
+        iTestContext.getFailedTests().getAllResults().forEach(System.out::println);
         driver.remove();
     }
 }

@@ -6,18 +6,16 @@ import helper.file.FileHelper;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import helper.RestAssuredHelper;
-import util.BasePageUtil;
-import waitservices.ExplicitWaitServices;
+import wait.ExplicitWaitServices;
 
 import java.io.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class HomePage extends BasePageUtil {
+public class HomePage extends BasePage {
 
     Logger logger = Logger.getLogger(HomePage.class);
 
@@ -37,10 +35,6 @@ public class HomePage extends BasePageUtil {
     private static long endTime;
     private static long estimatedTime;
 
-    public HomePage(WebDriver driver) {
-        super(driver);
-    }
-
     public HomePage closePopUp() {
         if (isExistElement(homePagePopUp)) {
             findElement(homePagePopUp).click();
@@ -54,7 +48,7 @@ public class HomePage extends BasePageUtil {
     public LoginPage clickSignInIconButton() {
         click(signInIcon);
         logger.info("Click Sign In Icon Button..");
-        return new LoginPage(webDriver);
+        return new LoginPage();
     }
 
     /**
@@ -84,7 +78,7 @@ public class HomePage extends BasePageUtil {
         List<WebElement> elements = new ExplicitWaitServices().waitPresenceOfAllElementLocatedBy(boutiqueLinkUrl);
         for (int i = 0; i < elements.size(); i++) {
             href = elements.get(i).getAttribute("href");
-            statusCode = String.valueOf(restAssuredHelper.getStatusCodeForGetRequest(href));
+            statusCode = String.valueOf(RestAssuredHelper.getStatusCodeForGetRequest(href));
             urlAndRespCode.put(href, statusCode);
         }
         return urlAndRespCode;

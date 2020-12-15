@@ -1,4 +1,4 @@
-package waitservices;
+package wait;
 
 
 import org.openqa.selenium.WebDriver;
@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.Wait;
 
 import java.util.concurrent.TimeUnit;
 
-public class FluentWaitServices extends waitservices.Wait {
+public class FluentWaitServices extends wait.Wait {
 
     Wait<WebDriver> fluentWait;
 
