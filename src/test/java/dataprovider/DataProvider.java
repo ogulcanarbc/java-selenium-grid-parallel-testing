@@ -9,7 +9,6 @@ public class DataProvider {
     private static Logger logger = Logger.getLogger(DataProvider.class);
     public static List<LoginDataModel> loginData;
 
-
     /**
      * Excel'den dataları okuyarak, dataprovider'ın anlayacağı 2 boyulu object dizisine çevirir
      *ve dataprovider'a parametre olarak verir
@@ -31,8 +30,8 @@ public class DataProvider {
         return LoginDataReader.INSTANCE.readExcelData();
     }
 
-    private static Object[][] convertLoginDataToObject2d(List<LoginDataModel> logindatalist) {
-        return logindatalist
+    private static Object[][] convertLoginDataToObject2d(List<LoginDataModel> loginDataList) {
+        return loginDataList
                 .stream()
                 .map(p -> new LoginDataModel[]{p})
                 .toArray(Object[][]::new);

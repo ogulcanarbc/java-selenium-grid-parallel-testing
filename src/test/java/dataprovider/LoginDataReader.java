@@ -29,10 +29,10 @@ public enum LoginDataReader {
         ExcelFile excelFile = ExcelFileFactory.createExcelFile(ExcelProperties.getInstance().getExcelSourceType());
         if (ExcelProperties.getInstance().getExcelSourceType().toString().equalsIgnoreCase("LOCAL")) {
             workbook = openWorkbook(excelFile.readExcelFile(ExcelProperties.getInstance().getLocalFilePath()));
-
         } else {
             workbook = openWorkbook(excelFile.readExcelFile(ExcelProperties.getInstance().getRemoteFilePath()));
         }
+
         List<LoginDataModel> loginDataList = new ArrayList<>();
         //TODO sheet name'i properties den al
         loginDataList.addAll(createLoginDateList(workbook, getSheetByName(workbook,"logindata")));
@@ -55,7 +55,6 @@ public enum LoginDataReader {
         return flightDataList;
     }
 
-
     private void close(Workbook workbook) {
         try {
             closeWorkbook(workbook);
@@ -70,7 +69,6 @@ public enum LoginDataReader {
                 .withUsername(getRowCellValueAsString(row, USERNAME))
                 .withPassword(getRowCellValueAsString(row, PASSWORD))
                 .build();
-
     }
 
 }
